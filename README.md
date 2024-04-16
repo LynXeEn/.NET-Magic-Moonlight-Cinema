@@ -1,7 +1,7 @@
-# Cinema Management System
+# Magic Moonlight Cinema
 
 ## Overview
-This Cinema Management System is a .NET Framework application designed to streamline the process of managing a cinema. It allows for user authentication and authorization, with specific roles allocated different levels of access and functionality.
+This Magic Moonlight Cinema is a .NET Framework application designed to streamline the process of managing a cinema. It allows for user authentication and authorization, with specific roles allocated different levels of access and functionality.
 The system ensures that only logged-in users can create and purchase tickets.
 
 ## Features
