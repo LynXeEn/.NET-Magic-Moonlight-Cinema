@@ -1,0 +1,40 @@
+﻿@model Magic_Moonlight_Cinema.Models.MovieCinema
+@{
+    ViewBag.Title = "InsertNewMovie";
+}
+
+<head>
+
+
+    <style>
+
+        #MovieId {
+            display: none;
+        }
+    </style>
+</head>
+
+<div style="background: url(../../images/banner2.jpg); height: 740px">
+    <div class="container" style="margin-left: 450px; padding-top: 50px; padding-bottom: 70px">
+        <h2 style="color: white; padding-top: 20px; font-style: italic; font-weight: bold">Insert new movie for the cinema: <span style="color:red">@Model.cinema.Name</span></h2>
+
+        @using (Html.BeginForm("InsertMovieCinema", "Cinemas"))
+        {
+
+           
+        <div class="form-group">
+            @Html.DropDownListFor(m => m.MovieId, new SelectList(Model.movies, "Id", "Name"), new { @class = "form-control", @style = "width: 200px"})
+            @Html.HiddenFor(m => m.CinemaId)
+        </div>   
+
+        <br />
+        <br />
+       <br />
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-default" style="color: white; background-color: red; width: 100px; border: 2px solid black; border-radius: 20px">Insert</button>
+            </div>
+        }
+    </div>
+</div>
+

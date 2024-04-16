@@ -1,0 +1,66 @@
+﻿@model Magic_Moonlight_Cinema.Models.Cinema
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div style="background: url(../../images/banner2.jpg); height: 740px; padding-top: 40px">
+    <div class="container" style="padding-top: 50px; border: 2px solid black; border-radius: 10px">
+        <h2 style="padding-left: 380px; color: white; font-weight: bold; font-style: italic">Details for cinema: @Model.Name</h2>
+
+        <div>
+            
+            <hr />
+            <dl class="dl-horizontal">
+                <dd style="margin-left: 490px; color: darkgrey; font-size: large; font-weight: bold">
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dd>
+                    <img src="@Model.ImageURL" style="width: 350px; margin-left: 385px; border: 3px solid white; border-radius: 10px" />
+                </dd>
+
+                <dt style="margin-left: 300px; color: red">
+                    @Html.DisplayNameFor(model => model.Location)
+                </dt>
+
+                <dd style="margin-left: 350px;">
+                    @Html.DisplayFor(model => model.Location)
+                </dd>
+
+                <dt style="margin-left: 300px; color: red">
+                    @Html.DisplayNameFor(model => model.Capacity)
+                </dt>
+
+                <dd style="margin-left: 350px;">
+                    @Html.DisplayFor(model => model.Capacity)
+                </dd>
+
+
+            </dl>
+        </div>
+
+        <h5 style="margin-left:300px; color: red; font-style: italic; font-weight: bold">Available movies in this cinema: </h5>
+        <div>
+            <ul>
+
+                @foreach (var movie in Model.movies)
+                {
+                    <li>
+                        <h5 style="margin-left: 350px; color: white">
+
+                            <a href="/Movies/Details/@movie.Id" style="color: white">@movie.Name</a>
+ 
+
+                        </h5>
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <p style="padding-bottom: 10px; padding-left: 10px">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @style = "color: lightblue; font-style: italic" }) |
+            @Html.ActionLink("Back to List", "Index", null, new { @style = "color: darkred; font-style: italic" })
+        </p>
+    </div>
+</div>

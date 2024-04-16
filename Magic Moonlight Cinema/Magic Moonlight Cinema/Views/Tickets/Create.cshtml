@@ -1,0 +1,113 @@
+﻿@model Magic_Moonlight_Cinema.Models.Ticket
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<head>
+    <style>
+        #Showtime, #PaymentMethod, #film {
+            display:none;
+        }
+    </style>
+</head>
+
+<div style="background: url(../../images/banner2.jpg); height: 900px">
+    <div class="container" style="margin-left: 260px">
+        <h2 style="padding-left: 365px; padding-top: 50px; color: white; font-style: italic">Reserve a ticket</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group" style="width: 500px; margin-left:250px">
+                    @Html.LabelFor(model => model.TicketCode, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.TicketCode, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TicketCode, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group" style="width: 500px; margin-left:250px">
+                    @Html.LabelFor(model => model.SeatNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SeatNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.SeatNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-left: 250px">
+                    @Html.LabelFor(model => model.Showtime, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.Showtime, new SelectList(new[]
+                        {
+                            new SelectListItem { Value = "12:00", Text = "12:00" },
+                            new SelectListItem { Value = "13:30", Text = "13:30" },
+                            new SelectListItem { Value = "15:00", Text = "15:00" },
+                            new SelectListItem { Value = "19:50", Text = "19:50" },
+                        }, "Value", "Text"), "-- Select Showtime --", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Showtime, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <br />
+                <br />
+                <br />
+
+
+                <div class="form-group" style="width: 500px; margin-left:250px">
+                    @Html.LabelFor(model => model.BookingDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.BookingDate, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.BookingDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-left: 250px">
+                    @Html.LabelFor(model => model.PaymentMethod, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.PaymentMethod, new SelectList(new[]
+                        {
+                            new SelectListItem { Value = "Payoneer", Text = "Payoneer" },
+                            new SelectListItem { Value = "PayPal", Text = "PayPal" },
+                            new SelectListItem { Value = "Visa", Text = "Visa" }
+                        }, "Value", "Text"), "-- Select Payment Method --", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.PaymentMethod, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <br />
+                <br />
+                <br />
+
+                <div class="form-group" style="margin-left: 250px">
+                    @Html.LabelFor(model => model.film, "Movie", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("film", ViewBag.MovieList as SelectList, "-- Select a Movie --", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.film, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <br />
+                <br />
+                <br />
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Reserve" class="btn btn-default" style="margin-left: 385px; border: 2px solid red; border-radius: 15px; color: white; background-color: black; width: 100px" />
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index", null, new { @style = "color:darkred" })
+        </div>
+
+    </div>
+</div>

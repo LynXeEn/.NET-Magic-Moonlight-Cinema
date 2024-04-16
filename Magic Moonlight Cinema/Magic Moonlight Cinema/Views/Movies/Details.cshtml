@@ -1,0 +1,64 @@
+﻿@model Magic_Moonlight_Cinema.Models.Movie
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div style="background: url(../../images/banner2.jpg); height: 740px; padding-top: 40px">
+    <div class="container" style="padding-top: 50px; border: 2px solid black; border-radius: 10px"> 
+        <h2 style="padding-left: 380px; color: white; font-weight: bold; font-style: italic">Details for movie: @Model.Name</h2>
+
+        <div>
+            
+            <hr />
+            <dl class="dl-horizontal">
+                
+
+                <dd style="margin-left: 490px; color: darkgrey; font-size: large; font-weight: bold">
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dd>
+                    <img src="@Model.Image" style="width: 350px; margin-left: 385px; border: 4px solid white; border-radius: 15px" />
+                </dd>
+
+                <dt style="margin-left: 300px; color: red">
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+
+                <dd style="margin-left: 350px;">
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+                <dt style="margin-left: 300px; color: red">
+                    @Html.DisplayNameFor(model => model.ReleaseDate)
+                </dt>
+
+                <dd style="margin-left: 350px;">
+                    @Html.DisplayFor(model => model.ReleaseDate)
+                </dd>
+
+                <dt style="margin-left: 300px; color: red" ">
+                    @Html.DisplayNameFor(model => model.Genre)
+                </dt>
+
+                <dd style="margin-left: 350px;">
+                    @Html.DisplayFor(model => model.Genre)
+                </dd>
+
+                <dt style="margin-left: 300px; color: red" ">
+                    @Html.DisplayNameFor(model => model.Duration)
+                </dt>
+
+                <dd style="margin-left: 350px;">
+                    @Html.DisplayFor(model => model.Duration) minutes
+                </dd>
+
+            </dl>
+        </div>
+        <p style="padding-bottom: 10px; padding-left: 10px">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @style = "color: lightblue; font-style: italic"}) |
+            @Html.ActionLink("Back to List", "Index", null, new { @style = "color: darkred; font-style: italic"})
+        </p>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+﻿@model Magic_Moonlight_Cinema.Models.AddToRoleModel
+@{
+    ViewBag.Title = "AddUserToRole";
+}
+
+<head>
+    <style>
+        #SelectedRole {
+            display:none;
+        }
+    </style>
+</head>
+
+<div style="background: url(../../images/banner2.jpg); height: 740px; padding-top: 20px">
+    <div class="container" style="margin-left: 450px; padding-top: 50px; padding-bottom: 70px; border:1px solid red; width: 700px; padding-left: 150px; border-radius: 10px">
+        <h2 style="color: white; padding-top: 20px; font-style: italic; font-weight: bold">Insert user with this E-mail to role : </h2>
+
+        @using (Html.BeginForm("AddUserToRole", "Account"))
+        {
+            <div class="form-group">
+                @Html.LabelFor(z => z.Email)
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @style = "width: 300px" })
+            </div>
+
+
+            <div class="form-group">
+                @Html.DropDownListFor(z => z.SelectedRole, new SelectList(Model.Roles), new { @class = "form-control", @style = "width: 200px" })
+            </div>
+
+            <br />
+            <br />
+            <br />
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-default" style="color: white; background-color: red; width: 100px; border: 2px solid black; border-radius: 20px">Insert</button>
+            </div>
+        }
+    </div>
+</div>
+

@@ -1,0 +1,65 @@
+﻿@model Magic_Moonlight_Cinema.Models.UserTicket
+@{
+    ViewBag.Title = "InsertNewTicket";
+}
+
+<head>
+    <style>
+        #TicketId{
+            display:none;
+        }
+        body > div:nth-child(4) > div > form > div > div.nice-select.form-control{
+            width: 250px;
+            margin-left: 100px
+        }
+    </style>
+</head>
+
+<div style="background: url(../../images/banner2.jpg); height: 740px">
+    <div class="container" style="margin-left: 450px; padding-top: 50px; padding-bottom: 70px">
+        <h2 style="color: white; padding-top: 20px; font-style: italic; font-weight: bold">Ticket booking for user : <span style="color:red">@Model.User.UserName</span></h2>
+
+        @{
+            var ticketList = Model.Tickets.Select(t => new SelectListItem
+            {
+                Text = $"{t.TicketCode} -> '{t.Movie.Name}'",
+                Value = t.Id.ToString()
+            });
+        }
+
+
+
+        @using (Html.BeginForm("InsertUserTicket", "Users"))
+        {
+
+    <div class="form-group">
+
+        @{ var izbrani = Model.Tickets.Where(m => m.User == null);}
+
+        @if (!izbrani.Any())
+        {
+            <div style="border: 2px solid white; border-radius: 10px; padding: 15px; margin-left: 30px; width: 370px; display: inline-block">
+                <h3 style="color: red; font-weight: bold; font-style: italic">There are no available tickets. Go to tickets section to reserve a ticket!</h3>
+                
+            </div>
+        }
+        else
+        {
+            @Html.DropDownListFor(m => m.TicketId, new SelectList(izbrani, "Id", "TicketCode"), new { @class = "form-control", @style = "width: 200px" })
+            @Html.HiddenFor(m => m.UserId)
+            <br />
+            <br />
+            <br />
+            <div class="form-group">
+                <button type="submit" class="btn btn-default" style="margin-left: 170px;color: white; background-color: red; width: 100px; border: 2px solid black; border-radius: 20px">Book</button>
+            </div>
+        }
+
+    </div>
+
+            
+        }
+
+    </div>
+</div>
+

@@ -1,0 +1,115 @@
+﻿@model Magic_Moonlight_Cinema.Models.Ticket
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<head>
+
+    <style>
+        #diki h3,  #diri h3{
+            margin-bottom: 30px;
+        }
+    </style>
+
+</head>
+
+<div style="background: url(../../images/banner2.jpg); min-height: 740px; padding-top: 40px">
+    <div class="container" style="padding-top: 50px; border: 1px solid red; border-radius: 10px; height:600px">
+
+        <div>
+            <hr />
+            <img src="~/images/official.png" style="width: 450px; margin-left: 330px;" />
+
+            <div style="margin-left: 100px; color: darkgrey; font-weight: bold; font-style: italic; font-size: 40px">
+                @Html.DisplayFor(model => model.Movie.Name)
+            </div>
+
+            <div style="display:inline-block; width: 600px; height: 300px; border: 1px solid red; border-radius: 20px; margin-bottom: 10px; margin-left: 20px">
+
+                <div id="diki" style="display:inline-block; width: 280px; padding-top: 30px; padding-left: 100px; margin-right: 10px">
+                    <h3 style="color:darkgrey">Seat Number: </h3>
+                    <h3 style="color: darkgrey">Showtime: </h3>
+                    <h3 style="color: darkgrey">Bookig Date: </h3>
+                    <h3 style="color: darkgrey">Payment Method: </h3>
+                </div>
+
+                <div id="diri" style="display: inline-block; width: 280px; padding-top: 50px; padding-left: 100px">
+                    <h3 style="color:white">
+                        @Html.DisplayFor(model => model.SeatNumber)
+                    </h3>
+                    <h3 style="color:white">
+                        @Html.DisplayFor(model => model.Showtime)
+                    </h3>
+                    <h3 style="color:white">
+                        @Html.DisplayFor(model => model.BookingDate)
+                    </h3>
+                    <h3 style="color:white">
+                        @Html.DisplayFor(model => model.PaymentMethod)
+                    </h3>
+                </div>
+            </div>
+
+            <img src="~/images/2b2e2610449a162f03b12bea92c257fb.jpg" style="display:inline-block; width: 300px; margin-top: -230px; margin-left: 100px" />
+
+            <!--
+        <dl class="dl-horizontal">
+
+            <dd>
+                <img src="~/images/official.png" style="width: 450px; margin-left: 330px;" />
+            </dd>
+
+            <dt style="margin-left: 300px; color: deepskyblue">
+                @Html.DisplayNameFor(model => model.Movie)
+            </dt>
+
+            <dd style="margin-left: 350px; color: darkgrey; font-weight: bold; font-style: italic; font-size: 20px">
+                @Html.DisplayFor(model => model.Movie.Name)
+            </dd>
+
+            <dt style="margin-left: 300px; color: deepskyblue">
+                @Html.DisplayNameFor(model => model.SeatNumber)
+            </dt>
+
+            <dd style="margin-left: 350px; color: darkgrey">
+                @Html.DisplayFor(model => model.SeatNumber)
+            </dd>
+
+            <dt style="margin-left: 300px; color: deepskyblue">
+                @Html.DisplayNameFor(model => model.Showtime)
+            </dt>
+
+            <dd style="margin-left: 350px; color: darkgrey">
+                @Html.DisplayFor(model => model.Showtime)
+            </dd>
+
+            <dt style="margin-left: 300px; color: deepskyblue">
+                @Html.DisplayNameFor(model => model.BookingDate)
+            </dt>
+
+            <dd style="margin-left: 350px; color: darkgrey">
+                @Html.DisplayFor(model => model.BookingDate)
+            </dd>
+
+            <dt style="margin-left: 300px; color: deepskyblue">
+                @Html.DisplayNameFor(model => model.PaymentMethod)
+            </dt>
+
+            <dd style="margin-left: 350px; color: darkgrey">
+                @Html.DisplayFor(model => model.PaymentMethod)
+            </dd>
+
+
+
+        </dl>
+            -->
+        </div>
+        
+
+    </div>
+
+    <p style="padding-bottom: 10px; padding-left: 10px; margin-left: 250px; margin-top: 30px">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @style = "color: lightblue; font-style: italic" }) |
+        @Html.ActionLink("Back to List", "Index", null, new { @style = "color: darkred; font-style: italic" })
+    </p>
+</div>

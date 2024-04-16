@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Magic_Moonlight_Cinema.Models.Cinema>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="firstC" ; style="background: url(../../images/banner2.jpg); min-height: 1000px">
+    <h2 style="color: white; font-weight: bold; padding-left: 670px; font-style: italic; padding-top: 10px ">Cinemas</h2>
+
+    <div>
+        <div style="display:inline-block; background-color: red; width: 150px; padding-left: 13px; border: 1px solid black; border-radius: 5px; margin-bottom: 10px">
+            @if (User.IsInRole("Administrator"))
+            {
+                @Html.ActionLink("Add New Cinema", "Create", null, new { @style = "color: white" })
+            }
+        </div>
+    </div>
+    <table class="table">
+        <tr>
+            <th style="color: darkgrey;">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th style="color: darkgrey;">
+                @Html.DisplayNameFor(model => model.ImageURL)
+            </th>
+            <th style="color: darkgrey;">
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th style="color: darkgrey;">
+                @Html.DisplayNameFor(model => model.Capacity)
+            </th>
+            
+            <th></th>
+        </tr>
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    <img src="@item.ImageURL" style="width: 200px" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Capacity)
+                </td>
+                
+                <td>
+
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @style = "color:white; font-style: italic; font-weight: bold; padding-right: 10px" })
+                    @if (User.IsInRole("Administrator") || User.IsInRole("Editor"))
+                    {
+
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @style = "color:white; font-style: italic; font-weight: bold; padding-right: 10px" })
+
+                    }
+
+                    @if (User.IsInRole("Administrator"))
+                    {
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @style = "color:red; font-style: italic; font-weight: bold; padding-right: 10px" })
+                        @Html.ActionLink("Insert New Movie", "InsertNewMovie", new { id = item.Id }, new { @style = "color:darkred; font-style: italic; font-weight: bold" })
+                    }
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

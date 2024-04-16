@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33927.289
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magic Moonlight Cinema", "Magic Moonlight Cinema\Magic Moonlight Cinema.csproj", "{45C19E53-F892-4246-804E-7EB8F404DE4D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45C19E53-F892-4246-804E-7EB8F404DE4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45C19E53-F892-4246-804E-7EB8F404DE4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45C19E53-F892-4246-804E-7EB8F404DE4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45C19E53-F892-4246-804E-7EB8F404DE4D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3E18F984-05A7-42DA-8157-1A992B50369A}
+	EndGlobalSection
+EndGlobal
